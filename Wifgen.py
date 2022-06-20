@@ -3,10 +3,18 @@
 #            https://docs.python.org/2/library/hashlib.html
 import codecs  #If not installed: "pip3 install codecs"
 import hashlib
+import random
 import secrets
+import datetime
+
 
 def wif():
-    bits = secrets.randbits(256)
+    yerss = random.randint(1, 10)  # лет назад
+    #print(yerss)
+    past_date = datetime.datetime.today() - datetime.timedelta(days = yerss * 365)
+    random.seed(past_date)
+    #print(past_date, end="\r")
+    bits = random.getrandbits(256)
     bits_hex = hex(bits)
     private_key = bits_hex[2:]
     PK0 = private_key

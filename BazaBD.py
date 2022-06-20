@@ -25,6 +25,7 @@ db = sqlite3.connect('partners.db')
 Connection = sqlite3.connect(':memory:')
 db.backup(Connection)
 sql = Connection.cursor()
+db.close()
 
 def dbaza(name, wallet):
     sql.execute("SELECT name FROM friends WHERE name = ?", [name])

@@ -20,8 +20,10 @@ def main():
 if __name__ == '__main__':
     while 1:
         # start_time = time.time()
-        with multiprocessing.Pool(multiprocessing.cpu_count()*3) as p:
+        with multiprocessing.Pool(multiprocessing.cpu_count()+2) as p:
             main()
+
+
 
         # print("--- %s seconds ---" % (time.time() - start_time))
 
